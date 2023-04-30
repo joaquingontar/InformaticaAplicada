@@ -123,7 +123,7 @@ void crear_archivo(){
 	}else{
 
 		for(j=1;j<=cant;j++){
-			elem=rand%1001;
+			elem=1+rand%1001; //1+rand%1001 devuelve una cantidad random de elementos para el caso de prueba n-esimo
 			printf("El caso %d tiene %d elementos\n", j, elem);
 			for (i=1;i<=elem;i++){
 				dec=33+rand()%(NUM+1);//La operación resto de la división rand()%(NUM+1) devuelve un número entre 0 y NUM. De este modo es que esta línea almacena en dec número desde el 33 hasta el valor NUM+33.
