@@ -1,0 +1,18 @@
+02:17:52 **** Incremental Build of configuration Release for project Ejercicio4 ****
+Info: Internal Builder is used for build
+gcc -O3 -Wall -c -fmessage-length=0 -o "src\\ej4.o" "..\\src\\ej4.c" 
+..\src\ej4.c: In function 'Reordenar':
+..\src\ej4.c:55:17: warning: implicit declaration of function 'sqrt' [-Wimplicit-function-declaration]
+  modulo[i]= abs(sqrt(pow((ciudades[i].situacion.abscisa-ciudades[num_ref].situacion.abscisa),2)+pow((ciudades[i].situacion.ordenada-ciudades[num_ref].situacion.ordenada),2)));
+                 ^~~~
+..\src\ej4.c:55:17: warning: incompatible implicit declaration of built-in function 'sqrt'
+..\src\ej4.c:55:17: note: include '<math.h>' or provide a declaration of 'sqrt'
+..\src\ej4.c:55:22: warning: implicit declaration of function 'pow' [-Wimplicit-function-declaration]
+  modulo[i]= abs(sqrt(pow((ciudades[i].situacion.abscisa-ciudades[num_ref].situacion.abscisa),2)+pow((ciudades[i].situacion.ordenada-ciudades[num_ref].situacion.ordenada),2)));
+                      ^~~
+..\src\ej4.c:55:22: warning: incompatible implicit declaration of built-in function 'pow'
+..\src\ej4.c:55:22: note: include '<math.h>' or provide a declaration of 'pow'
+..\src\ej4.c:46:35: warning: unused variable 'orden' [-Wunused-variable]
+ double modulo[num_ciudades],menor,orden[3];
+                                   ^~~~~
+gcc -o Ejercicio4.exe "src\\ej4.o" 

@@ -1,0 +1,339 @@
+16:31:51 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:83:16: warning: passing argument 1 of 'strLargo' makes pointer from integer without a cast [-Wint-conversion]
+  larg=strLargo(*string); //utilizo la funcion largo
+                ^
+..\src\ej6.c:52:5: note: expected 'const char *' but argument is of type 'char'
+ int strLargo(const char *origen){
+     ^~~~~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:102:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:89:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:86:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+Info: Nothing to build for Ejercicio6
+16:34:15 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:83:16: warning: passing argument 1 of 'strLargo' makes pointer from integer without a cast [-Wint-conversion]
+  larg=strLargo(*string); //utilizo la funcion largo
+                ^
+..\src\ej6.c:52:5: note: expected 'const char *' but argument is of type 'char'
+ int strLargo(const char *origen){
+     ^~~~~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:103:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:90:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:86:14: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(1+destino+i)=*(string+larg-1-i);
+    ~~~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+16:36:11 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:83:16: warning: passing argument 1 of 'strLargo' makes pointer from integer without a cast [-Wint-conversion]
+  larg=strLargo(*string); //utilizo la funcion largo
+                ^
+..\src\ej6.c:52:5: note: expected 'const char *' but argument is of type 'char'
+ int strLargo(const char *origen){
+     ^~~~~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:104:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:91:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:86:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+16:53:58 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:83:16: warning: passing argument 1 of 'strLargo' makes pointer from integer without a cast [-Wint-conversion]
+  larg=strLargo(*string); //utilizo la funcion largo
+                ^
+..\src\ej6.c:52:5: note: expected 'const char *' but argument is of type 'char'
+ int strLargo(const char *origen){
+     ^~~~~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:103:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:90:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:86:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+Info: Nothing to build for Ejercicio6
+17:17:37 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:83:16: warning: passing argument 1 of 'strLargo' makes pointer from integer without a cast [-Wint-conversion]
+  larg=strLargo(*string); //utilizo la funcion largo
+                ^
+..\src\ej6.c:52:5: note: expected 'const char *' but argument is of type 'char'
+ int strLargo(const char *origen){
+     ^~~~~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:103:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:90:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:86:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+17:43:28 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:84:16: warning: passing argument 1 of 'strLargo' makes pointer from integer without a cast [-Wint-conversion]
+  larg=strLargo(*string); //utilizo la funcion largo
+                ^
+..\src\ej6.c:52:5: note: expected 'const char *' but argument is of type 'char'
+ int strLargo(const char *origen){
+     ^~~~~~~~
+..\src\ej6.c:83:8: warning: unused variable 'rever' [-Wunused-variable]
+  char* rever=(char*)malloc(larg+1);
+        ^~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:104:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:91:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:83:32: warning: 'larg' is used uninitialized in this function [-Wuninitialized]
+  char* rever=(char*)malloc(larg+1);
+                            ~~~~^~
+..\src\ej6.c:87:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+17:45:21 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:83:16: warning: passing argument 1 of 'strLargo' makes pointer from integer without a cast [-Wint-conversion]
+  larg=strLargo(*string); //utilizo la funcion largo
+                ^
+..\src\ej6.c:52:5: note: expected 'const char *' but argument is of type 'char'
+ int strLargo(const char *origen){
+     ^~~~~~~~
+..\src\ej6.c:84:8: warning: unused variable 'rever' [-Wunused-variable]
+  char* rever=(char*)malloc(larg+1);
+        ^~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:104:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:91:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:87:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+17:48:44 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:84:8: warning: unused variable 'rever' [-Wunused-variable]
+  char* rever=(char*)malloc(larg+1);
+        ^~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:104:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:91:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:87:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+17:51:57 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:91:7: warning: passing argument 1 of 'puts' makes pointer from integer without a cast [-Wint-conversion]
+  puts(*destino);
+       ^
+In file included from ..\src\ej6.c:7:0:
+c:\mingw\include\stdio.h:677:41: note: expected 'const char *' but argument is of type 'char'
+ _CRTIMP __cdecl __MINGW_NOTHROW  int    puts (const char *);
+                                         ^~~~
+..\src\ej6.c:84:8: warning: unused variable 'rever' [-Wunused-variable]
+  char* rever=(char*)malloc(larg+1);
+        ^~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:105:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:92:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:87:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+17:52:51 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:84:8: warning: unused variable 'rever' [-Wunused-variable]
+  char* rever=(char*)malloc(larg+1);
+        ^~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:105:4: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=origen;
+    ^
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:92:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:87:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+18:07:40 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:84:8: warning: unused variable 'rever' [-Wunused-variable]
+  char* rever=(char*)malloc(larg+1);
+        ^~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:104:13: warning: passing argument 1 of 'reverse' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=reverse(origen);//doy vuelta la frase
+             ^~~~~~
+..\src\ej6.c:79:7: note: expected 'char *' but argument is of type 'const char *'
+ char* reverse(char *string){
+       ^~~~~~~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:91:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:87:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 

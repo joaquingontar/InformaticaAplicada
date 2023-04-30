@@ -1,0 +1,17 @@
+16:30:29 **** Incremental Build of configuration Debug for project Ejercicio2 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej2.o" "..\\src\\ej2.c" 
+..\src\ej2.c: In function 'main':
+..\src\ej2.c:15:32: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat=]
+ printf("direccion de memoria: %x\n", &i);
+                                ^
+..\src\ej2.c:22:1: warning: statement with no effect [-Wunused-value]
+ sizeof j; //tamaño del arreglo
+ ^~~~~~
+..\src\ej2.c:32:70: warning: format '%x' expects argument of type 'unsigned int', but argument 3 has type 'int *' [-Wformat=]
+  printf("la direccion de memoria de la posicion %d del arreglo, es: %x\n",c ,pi+c);
+                                                                      ^
+gcc -o Ejercicio2.exe "src\\ej2.o" 
+
+16:30:30 Build Finished. 0 errors, 3 warnings. (took 375ms)
+

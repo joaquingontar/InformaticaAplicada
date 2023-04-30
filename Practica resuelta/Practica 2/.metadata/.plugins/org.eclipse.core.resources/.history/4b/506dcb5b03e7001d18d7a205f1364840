@@ -1,0 +1,29 @@
+/*
+ * ej4.c
+ *
+ *  Created on: 29 abr. 2023
+ *      Author: joaqu
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#define n='3'
+
+//Estructura, dato del problema
+struct TipoPunto{
+double abscisa;
+double ordenada;};
+struct TipoCiudad{
+TipoPunto situacion;
+char nombre[50];
+};
+int main(){
+	//ingreso las ciudades con su determinadas coordenadas
+	struct TipoCiudad *origen[n];
+	int i;
+	while(i<n){
+		printf("ingrese una ciudad\n");
+		scanf("%s", origen[i]->nombre);
+		printf("%s", origen[i]->nombre);
+	}
+}

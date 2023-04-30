@@ -1,0 +1,57 @@
+/*
+ * ej4.c
+ *
+ *  Created on: 29 abr. 2023
+ *      Author: joaqu
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//Estructura, dato del problema
+struct TipoPunto{
+	double abscisa;
+	double ordenada;};
+struct TipoCiudad{
+	struct TipoPunto situacion;
+	char nombre[50];
+};
+//funcion a utilizar
+void Reordenar (struct TipoCiudad ciudades[], int num_ciudades, const char nombre_ciudad_referencia[]);
+
+int main(){
+	//ingreso las ciudades con su determinadas coordenadas
+	int i=0, n=3;
+	struct TipoCiudad ciudades[n];
+	char nom[50];
+	//ingreso los datos
+	while(i<n){
+		printf("ingrese una ciudad\n");
+		scanf("%s", ciudades[i].nombre);
+		printf("ingrese una coordenada de abscisas\n");
+		scanf("%lf",&ciudades[i].situacion.abscisa);
+		printf("ingrese una coordenada de ordenada\n");
+		scanf("%lf",&ciudades[i].situacion.ordenada);
+		i++;
+	}
+	//pedir referencia
+	printf("ingrese la ciudad que quiere tomar como referencia\n");
+	scanf("%s", nom);
+	Reordenar(ciudades, n, nom);
+}
+
+
+void Reordenar (struct TipoCiudad ciudades[], int num_ciudades, const char nombre_ciudad_referencia[]){
+int i=0;
+double modulo[num_ciudades];
+int num_ref;
+//primero busca en que posicion del vector se encuentra la referencia(por el nombre)
+for(i=0;i<3;i++){
+	if(nombre_ciudad_referencia==ciudades[i].nombre){
+		num_ref=i;}
+}
+while(i<num_ciudades){
+	modulo[i]= sqrt(pow((ciudades[i].situacion.abscisa-ciudades[num_ref].situacion.abscisa),2)+pow((ciudades[i].situacion.ordenada-ciudades[num_ref].situacion.ordenada),2));
+}
+}
+

@@ -1,0 +1,7 @@
+20:22:26 **** Rebuild of configuration Debug for project Ejercicio3 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej3.o" "..\\src\\ej3.c" 
+gcc -o Ejercicio3.exe "src\\ej3.o" 
+
+20:22:26 Build Finished. 0 errors, 0 warnings. (took 428ms)
+

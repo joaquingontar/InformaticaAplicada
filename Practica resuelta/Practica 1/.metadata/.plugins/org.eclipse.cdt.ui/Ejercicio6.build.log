@@ -1,0 +1,33 @@
+18:07:40 **** Incremental Build of configuration Debug for project Ejercicio6 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ej6.o" "..\\src\\ej6.c" 
+..\src\ej6.c: In function 'main':
+..\src\ej6.c:27:7: warning: unused variable 'reves' [-Wunused-variable]
+ char* reves;
+       ^~~~~
+..\src\ej6.c: In function 'strVacio':
+..\src\ej6.c:62:12: warning: comparison between pointer and integer
+  if(*origen==NULL){
+            ^~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:84:8: warning: unused variable 'rever' [-Wunused-variable]
+  char* rever=(char*)malloc(larg+1);
+        ^~~~~
+..\src\ej6.c: In function 'strDer':
+..\src\ej6.c:104:13: warning: passing argument 1 of 'reverse' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  pt=reverse(origen);//doy vuelta la frase
+             ^~~~~~
+..\src\ej6.c:79:7: note: expected 'char *' but argument is of type 'const char *'
+ char* reverse(char *string){
+       ^~~~~~~
+..\src\ej6.c: In function 'reverse':
+..\src\ej6.c:91:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\ej6.c:87:12: warning: 'destino' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *(destino+i)=*(string+larg-1-i);
+    ~~~~~~~~^~~
+gcc -o Ejercicio6.exe "src\\ej6.o" 
+
+18:07:40 Build Finished. 0 errors, 6 warnings. (took 436ms)
+

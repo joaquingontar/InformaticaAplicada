@@ -1,0 +1,47 @@
+/*
+ * ej4.c
+ *
+ *  Created on: 29 abr. 2023
+ *      Author: joaqu
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//Estructura, dato del problema
+struct TipoPunto{
+	double abscisa;
+	double ordenada;};
+struct TipoCiudad{
+	struct TipoPunto situacion;
+	char nombre[50];
+};
+//funcion a utilizar
+void Reordenar (struct TipoCiudad ciudades[], int num_ciudades, const char nombre_ciudad_referencia[]);
+
+int main(){
+	//ingreso las ciudades con su determinadas coordenadas
+	struct TipoCiudad ciudades[N], nom[50];
+	int i=0, n=3;
+	//ingreso los datos
+	while(i<n){
+		printf("ingrese una ciudad\n");
+		scanf("%s", ciudades[i].nombre);
+		printf("ingrese una coordenada de abscisas\n", ciudades[i].situacion.abscisa);
+		printf("ingrese una coordenada de ordenada\n", ciudades[i].situacion.ordenada);
+		i++;
+	}
+	//pedir referencia
+	printf("ingrese la ciudad que quiere tomar como referencia\n");
+	scanf("%s", nom);
+	}
+	Reordenar(struct TipoCiudad ciudades,int n, const char nom[]);
+}
+
+void Reordenar (struct TipoCiudad ciudades[], int num_ciudades, const char nombre_ciudad_referencia[]){
+	ref.situacion.abscisa=ciudades[0].situacion.abscisa;
+	ref.situacion.ordenada=ciudades[0].situacion.ordenada;
+	while (ref.nombre!=ciudades[i].nombre){
+		ref.situacion.abscisa=ciudades[i].situacion.abscisa;
+		ref.situacion.ordenada=ciudades[i].situacion.ordenada;
+}

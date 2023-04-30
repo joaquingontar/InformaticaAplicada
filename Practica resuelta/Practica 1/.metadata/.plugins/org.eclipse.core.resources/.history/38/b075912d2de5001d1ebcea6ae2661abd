@@ -1,0 +1,25 @@
+/*
+ ============================================================================
+ Name        : prueba.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+int main(){
+	int primos[ ] = {1, 2, 3, 5, 7, 11, 13};
+	int *p = primos;
+	int i;
+
+	for( i=0; i < 7; i++){
+	printf("%d" *p++ );
+	}
+
+}
