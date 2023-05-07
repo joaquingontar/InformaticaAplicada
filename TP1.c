@@ -15,6 +15,7 @@ void menu(); //muestra el menú de opciones y redirecciona según la opción sel
 void regmenu(); //pregunta si se desea regresar al menú de opciones o se desea terminar el programa
 void crear_archivo(); //Crea el archivo con casos de prueba
 void leer_archivo(); //Lee el archivo con casos de prueba tal cual fue creado
+void frecuencia(); //Muestra la frecuencia en l
 void eliminar_archivo(); //Elimina el archivo con casos de prueba
 
 
@@ -57,7 +58,7 @@ void menu(){
 	printf("\n\n");
 
 	while(opc<1 || opc>5){
-		printf("La opción seleccionada no es valida. Seleccione unao opción valida\n");
+		printf("La opción seleccionada no es valida. Seleccione una opción valida\n");
 		scanf("%d",&opc);
 	}
 
@@ -70,7 +71,7 @@ void menu(){
 		leer_archivo();
 		break;
 	case Mostrar:
-		printf("Opcion en construcción\nPrograma finalizado\n");
+		frecuencia();
 		break;
 	case Eliminar:
 		eliminar_archivo();
@@ -121,10 +122,10 @@ void crear_archivo(){
 		}
 
 
-	srand(time(NULL));
+	srand(time(NULL));//semilla interna de generador de numeros aleatorios diferentes
 
 	mkdir("datos", 0777); //crea directorio para el archivo de texto "datos"
-	archivo=fopen("datos/pruebas.txt","w");
+	archivo=fopen("datos/pruebas.txt","w");//crea y abre el archivo de texto pruebas en el directorio datos
 
 	if(archivo==NULL){
 		printf("El archivo no pudo ser creado.\n");
@@ -168,6 +169,67 @@ void leer_archivo(){
 	regmenu();
 }
 
+//-----------------------------------------------------------------------------------------------------
+
+void frecuencia(){
+
+//defino variables
+	typedef struct ascii{int decimal; int prueba; int frec;}ascii;
+	FILE *archivo;
+	int i,j,valor;
+	char lec;
+	ascii dato[93];//variable tipo estructura
+
+
+//inicializaciones
+	int num_prueba=1;
+	int cant_caract=0;
+	for(i=0;i<93;i++){
+		dato[i].frec=0;
+		dato[i].decimal=0;
+		dato[i].prueba=0;
+
+	}
+	i=0;
+
+archivo=fopen("datos/pruebas.txt","r");
+//cuento las frecuencias en cada prueba
+	if(archivo==NULL){
+			printf("El archivo no existe.\n");
+		}else{
+		while(!feof(archivo)){
+			fscanf(archivo,"%c",&lec); //leo un caracter
+			cant_caract=cant_caract+1;
+
+			//si lec es final de linea, que cambie a la siguiente prueba
+
+			valor=(int) lec; //valor del caracter leido pero en decimal
+			i=valor-33;
+			dato[i].decimal=valor;
+			dato[i].frec=dato[i].frec+1;
+			dato[i].prueba=num_prueba;
+
+			//en el caso de ser un salto de linea, inicializo denuevo las variables y sumo 1 a prueba
+//			if(lec=='\n'){
+//				num_prueba=num_prueba+1;
+//				cant_caract=0;
+//				for(i=0;i<93;i++){
+//					dato[i].frec=0;
+//					dato[i].decimal=0;
+//					dato[i].prueba=0;
+//				}
+//			}
+		}
+		for(i=0;i<93;i++){
+							printf("%d\t%d\t%d\t%d\n",i ,dato[i].decimal, dato[i].frec, dato[i].prueba );
+						}
+	fclose(archivo);
+	}
+	regmenu();
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 void eliminar_archivo(){
 	FILE *archivo;
 	remove("datos/pruebas.txt");
@@ -182,6 +244,5 @@ void eliminar_archivo(){
 		}
 
 	fclose(archivo);
-
 	regmenu();
 }
