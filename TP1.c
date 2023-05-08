@@ -246,9 +246,17 @@ void frecuencia(){
                 menor = dec[i].caso[k];
                 lugar = i;
                 for (j = i + 1; j < 93; j++) {
-                    if (menor > dec[j].caso[k] || (menor == dec[j].caso[k] && i < j)) {
+                	//caso en el que el siguiente es menor que la variable menor
+                    if (menor > dec[j].caso[k]) {
                         menor = dec[j].caso[k];
                         lugar = j;
+                    }
+                    //caso en el que el siguiente es igual que la variable menor
+                    if (menor == dec[j].caso[k]) {
+                    	if (dec[lugar].decimal<dec[j].decimal){
+							menor = dec[j].caso[k];
+							lugar = j;
+											}
                     }
                 }
                 if (lugar != i) {
