@@ -15,7 +15,7 @@ void menu(); //muestra el menú de opciones y redirecciona según la opción sel
 void regmenu(); //pregunta si se desea regresar al menú de opciones o se desea terminar el programa
 void crear_archivo(); //Crea el archivo con casos de prueba
 void leer_archivo(); //Lee el archivo con casos de prueba tal cual fue creado
-void frecuencia(); //Muestra la frecuencia en l
+void frecuencia(); //Muestra la frecuencia de aparición de cada caracter por caso de prueba en el archivo de prueba
 void eliminar_archivo(); //Elimina el archivo con casos de prueba
 
 
@@ -37,14 +37,14 @@ int main(){
 void menu(){
 	int opc;
 
-	printf("\t\t\tMenu\n");
+	printf("\t\t\tMenú\n");
 	printf("--------------------------------------------------------\n");
 	printf("\n");
 	printf("1 - Crear archivo con casos de prueba (terminado)\n");
 	printf("\n");
 	printf("2 - Leer archivo con casos de prueba (terminado)\n");
 	printf("\n");
-	printf("3 - Mostrar frecuencia de caractéres en casos de prueba (en construccion)\n");
+	printf("3 - Mostrar frecuencia de caractéres en casos de prueba (en construcción)\n");
 	printf("\n");
 	printf("4 - Eliminar archivo con casos de prueba (terminado)\n");
 	printf("\n");
@@ -53,12 +53,13 @@ void menu(){
 	printf("--------------------------------------------------------\n");
 	printf("\n\n");
 
-	printf("Seleccione un opcion: \n");
+	printf("Seleccione un opción: \n");
 	scanf("%d",&opc);
 	printf("\n\n");
 
-	while(opc<1 || opc>5){
-		printf("La opción seleccionada no es valida. Seleccione una opción valida\n");
+	while(opc!=Crear && opc!=Leer && opc!=Mostrar && opc!=Eliminar && opc!=Salir ){
+		printf("La opción seleccionada no es válida. Seleccione unao opción válida\n");
+		setbuf(stdin,0);
 		scanf("%d",&opc);
 	}
 
@@ -90,7 +91,7 @@ void regmenu(){
 	setbuf(stdin,0);
 	char conf;
 
-	printf("¿Desea regresar al menú? Ingrese S para confirmar o N para terminar.\n\n");
+	printf("\n\n¿Desea regresar al menú? Ingrese S para confirmar o N para terminar.\n\n");
 	scanf("%c",&conf);
 
 	while(conf!='S' && conf!='s' && conf!='N' && conf!='n'){
@@ -110,8 +111,9 @@ void regmenu(){
 
 void crear_archivo(){
 
-	#define NUM 94
-	int i,j,dec,cant,elem; //dec: decimal ascii , cant: cantidad casos de prueba, elem: cantidad random de elementos para el n-esimo caso
+	#define NUM 93 // NUM+33 es el extremo superior del rango de valores ascii que puede tomar la variable dec. 126=NUM+33 => NUM=93
+	#define CANTEL 10 // CANTEL= Cantidad máxima de elementos por caso de prueba
+	int i,j,dec,cant,elem; //dec: decimal ascii , cant: cantidad casos de prueba, elem: cantidad aleatoria de elementos para el n-esimo caso
 	FILE *archivo;
 
 	printf("Ingrese la cantidad deseada de casos de prueba:\n");
@@ -122,25 +124,26 @@ void crear_archivo(){
 		}
 
 
-	srand(time(NULL));//semilla interna de generador de numeros aleatorios diferentes
+	srand(time(NULL));
 
 	mkdir("datos", 0777); //crea directorio para el archivo de texto "datos"
-	archivo=fopen("datos/pruebas.txt","w");//crea y abre el archivo de texto pruebas en el directorio datos
+	archivo=fopen("datos/pruebas.txt","w");
 
 	if(archivo==NULL){
 		printf("El archivo no pudo ser creado.\n");
 	}else{
-
 		for(j=1;j<=cant;j++){
-			elem=1+rand()%1001; //1+rand%1001 devuelve una cantidad random de elementos para el caso de prueba n-esimo
+			elem=1+rand()%(CANTEL); //1+rand%CANTEL devuelve una cantidad random de elementos para el caso de prueba n-esimo
 			printf("El caso %d tiene %d elementos\n", j, elem);
 			for (i=1;i<=elem;i++){
 				dec=33+rand()%(NUM+1);//La operación resto de la división rand()%(NUM+1) devuelve un número entre 0 y NUM. De este modo es que esta línea almacena en dec número desde el 33 hasta el valor NUM+33.
 				fprintf(archivo,"%c",dec);
 			}
-			fprintf(archivo,"\n\n");
+			if(j!=cant){
+				fprintf(archivo,"\n"); //¡¡¡pulir doble espacio final en archivo!!!!
+			}
 		}
-		printf("Archivo creado con exito.\n\n");
+		printf("Archivo creado con éxito.\n\n");
 		fclose(archivo);
 	}
 	regmenu();
@@ -152,83 +155,132 @@ void crear_archivo(){
 
 void leer_archivo(){
 
+
 	char lec;
+	int caso=1, b=0;
 	FILE *archivo;
 
 	archivo=fopen("datos/pruebas.txt","r");
 
 	if(archivo==NULL){
-			printf("El archivo no existe.\n");
-		}else{
-				while(!feof(archivo)){
-					fscanf(archivo,"%c",&lec);
-					printf("%c ",lec);
-				}
-				fclose(archivo);
+		printf("El archivo no existe.\n");
+	}else{
+		while(!feof(archivo)){
+			if(b==0){
+				printf("Caso %d\n",caso);
+			}
+			fscanf(archivo,"%c",&lec);
+			if(lec!='\n' || lec!='feof'){
+				printf("%c ",lec);
+				b=1;
+			}else{
+				b=0;
+				caso+=1;
+				setbuf(stdout,0);
+				setbuf(stdin,0);
+				printf("%c",lec);
+			}
 		}
+		fclose(archivo);
+	}
+
+
+
 	regmenu();
 }
 
-//-----------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------
 
 void frecuencia(){
 
-//defino variables
-	typedef struct ascii{int decimal; int prueba; int frec;}ascii;
-	FILE *archivo;
-	int i,j,valor;
-	char lec;
-	ascii dato[93];//variable tipo estructura
+    char lec, car;
+    int b = 0, casos = 1;
 
+    FILE *archivo;
+    archivo = fopen("datos/pruebas.txt", "r");
 
-//inicializaciones
-	int num_prueba=1;
-	int cant_caract=0;
-	for(i=0;i<93;i++){
-		dato[i].frec=0;
-		dato[i].decimal=0;
-		dato[i].prueba=0;
+    if (archivo == NULL){
+        printf("El archivo no existe. Cree un archivo de casos de pruebas.\n");
+    } else {
+        while (!feof(archivo)){
+            fscanf(archivo, "%c", &lec);
+            if (lec == '\n'){
+                casos++;
+            }
+        }
+        printf("La cantidad de casos es %d\n\n", casos);
 
-	}
-	i=0;
+        // Declaración de estructura
+        typedef struct {
+            int *caso; // caso es un puntero a un arreglo de enteros
+            int decimal;
+        } ascii;
 
-archivo=fopen("datos/pruebas.txt","r");
-//cuento las frecuencias en cada prueba
-	if(archivo==NULL){
-			printf("El archivo no existe.\n");
-		}else{
-		while(!feof(archivo)){
-			fscanf(archivo,"%c",&lec); //leo un caracter
-			cant_caract=cant_caract+1;
+        ascii dec[93];
 
-			//si lec es final de linea, que cambie a la siguiente prueba
+        // La función calloc asigna memoria inicializada en cero
+        for (int i = 0; i < 93; i++) {
+            dec[i].caso = (int*)calloc(casos, sizeof(int));
+            dec[i].decimal=0;
+        }
 
-			valor=(int) lec; //valor del caracter leido pero en decimal
-			i=valor-33;
-			dato[i].decimal=valor;
-			dato[i].frec=dato[i].frec+1;
-			dato[i].prueba=num_prueba;
+        // Contar frecuencia de aparición de caracteres por caso
+        rewind(archivo);
+        while (fscanf(archivo, "%c", &car) != EOF) {
+            if (car != '\n') {
+                dec[car - 33].caso[b]++;
+                dec[car-33].decimal= car;
+            } else {
+                b++;
+            }
+        }
 
-			//en el caso de ser un salto de linea, inicializo denuevo las variables y sumo 1 a prueba
-//			if(lec=='\n'){
-//				num_prueba=num_prueba+1;
-//				cant_caract=0;
-//				for(i=0;i<93;i++){
-//					dato[i].frec=0;
-//					dato[i].decimal=0;
-//					dato[i].prueba=0;
-//				}
-//			}
-		}
-		for(i=0;i<93;i++){
-							printf("%d\t%d\t%d\t%d\n",i ,dato[i].decimal, dato[i].frec, dato[i].prueba );
-						}
-	fclose(archivo);
-	}
-	regmenu();
+        fclose(archivo);
+
+        // Ordenamiento
+        int i, j, menor, lugar;
+        for (int k = 0; k < casos; k++) {
+            printf("\nCaso %d\n", k + 1);
+            for (i = 0; i < 93 - 1; i++) {
+                menor = dec[i].caso[k];
+                lugar = i;
+                for (j = i + 1; j < 93; j++) {
+                    if (menor > dec[j].caso[k] || (menor == dec[j].caso[k] && i < j)) {
+                        menor = dec[j].caso[k];
+                        lugar = j;
+                    }
+                }
+                if (lugar != i) {
+                    int *temp = dec[i].caso;
+                    dec[i].caso = dec[lugar].caso;
+                    dec[lugar].caso = temp;
+
+                    int tempDecimal = dec[i].decimal;
+                    dec[i].decimal = dec[lugar].decimal;
+                    dec[lugar].decimal = tempDecimal;
+                }
+            }
+
+            // Imprimir por pantalla los casos y frecuencias asociados
+            for (i = 0; i < 93; i++) {
+                if (dec[i].caso[k]) {
+                    printf("El caracter %d es %c y tiene frecuencia %d\n", dec[i].decimal, dec[i].decimal, dec[i].caso[k]);
+                }
+            }
+        }
+
+        // Liberar memoria
+        for (int i = 0; i < 93; i++) {
+            free(dec[i].caso);
+        }
+    }
+
+    regmenu();
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+
 
 void eliminar_archivo(){
 	FILE *archivo;
@@ -244,5 +296,6 @@ void eliminar_archivo(){
 		}
 
 	fclose(archivo);
+
 	regmenu();
 }
