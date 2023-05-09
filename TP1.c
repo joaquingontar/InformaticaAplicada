@@ -3,7 +3,7 @@
  *
  *  Created on: 25 apr. 2023
  *
- *  Autor: Espíndola, Yésica .- Gonzalez, Joaquín - Weller, Gustavo
+ *  Autor: Espindola, Yesica .- Gonzalez, Joaquin - Weller, Gustavo
  *
  */
 
@@ -15,11 +15,11 @@
 
 enum opciones{Crear=1,Leer,Mostrar,Eliminar,Salir};
 
-void menu(); //muestra el menú de opciones y redirecciona según la opción seleccionada
-void regmenu(); //pregunta si se desea regresar al menú de opciones o se desea terminar el programa
+void menu(); //muestra el menu de opciones y redirecciona segun la opcion seleccionada
+void regmenu(); //pregunta si se desea regresar al menu de opciones o se desea terminar el programa
 void crear_archivo(); //Crea el archivo con casos de prueba
 void leer_archivo(); //Lee el archivo con casos de prueba tal cual fue creado
-void frecuencia(); //Muestra la frecuencia de aparición de cada caracter por caso de prueba en el archivo de prueba
+void frecuencia(); //Muestra la frecuencia de aparicion de cada caracter por caso de prueba en el archivo de prueba
 void eliminar_archivo(); //Elimina el archivo con casos de prueba
 
 
@@ -41,28 +41,28 @@ int main(){
 void menu(){
 	int opc;
 
-	printf("\t\t\tMenú\n");
+	printf("\t\t\tMenu\n");
 	printf("--------------------------------------------------------\n");
 	printf("\n");
-	printf("1 - Crear archivo con casos de prueba (terminado)\n");
+	printf("1 - Crear archivo con casos de prueba\n");
 	printf("\n");
-	printf("2 - Leer archivo con casos de prueba (terminado)\n");
+	printf("2 - Leer archivo con casos de prueba\n");
 	printf("\n");
-	printf("3 - Mostrar frecuencia de caractéres en casos de prueba (en construcción)\n");
+	printf("3 - Mostrar frecuencia de caracteres en casos de prueba\n");
 	printf("\n");
-	printf("4 - Eliminar archivo con casos de prueba (terminado)\n");
+	printf("4 - Eliminar archivo con casos de prueba\n");
 	printf("\n");
 	printf("5 - Salir\n");
 	printf("\n");
 	printf("--------------------------------------------------------\n");
 	printf("\n\n");
 
-	printf("Seleccione un opción: \n");
+	printf("Seleccione un opcion: \n");
 	scanf("%d",&opc);
 	printf("\n\n");
 
 	while(opc!=Crear && opc!=Leer && opc!=Mostrar && opc!=Eliminar && opc!=Salir ){
-		printf("La opción seleccionada no es válida. Seleccione unao opción válida\n");
+		printf("La opcion seleccionada no es valida. Seleccione unao opcion valida\n");
 		setbuf(stdin,0);
 		scanf("%d",&opc);
 	}
@@ -95,11 +95,11 @@ void regmenu(){
 	setbuf(stdin,0);
 	char conf;
 
-	printf("\n\n¿Desea regresar al menú? Ingrese S para confirmar o N para terminar.\n\n");
+	printf("\n\n¿Desea regresar al menu? Ingrese S para confirmar o N para terminar.\n\n");
 	scanf("%c",&conf);
 
 	while(conf!='S' && conf!='s' && conf!='N' && conf!='n'){
-		printf("La opción ingresada no es válida. Ingrese S para confirmar o N para terminar\n");
+		printf("La opcion ingresada no es valida. Ingrese S para confirmar o N para terminar\n");
 		scanf("%c",&conf);
 	}
 	if(conf=='s' || conf=='S' ){
@@ -116,14 +116,14 @@ void regmenu(){
 void crear_archivo(){
 
 	#define NUM 93 // NUM+33 es el extremo superior del rango de valores ascii que puede tomar la variable dec. 126=NUM+33 => NUM=93
-	#define CANTEL 1000 // CANTEL= Cantidad máxima de elementos por caso de prueba
+	#define CANTEL 1000 // CANTEL= Cantidad maxima de elementos por caso de prueba
 	int i,j,dec,cant,elem; //dec: decimal ascii , cant: cantidad casos de prueba, elem: cantidad aleatoria de elementos para el n-esimo caso
 	FILE *archivo;
 
 	printf("Ingrese la cantidad deseada de casos de prueba:\n");
 	scanf("%d",&cant);
 	while(cant<1){
-			printf("La cantidad de casos de prueba debe ser un número positivo\n");
+			printf("La cantidad de casos de prueba debe ser un numero positivo\n");
 			scanf("%d",&cant);
 		}
 
@@ -140,14 +140,14 @@ void crear_archivo(){
 			elem=1+rand()%(CANTEL); //1+rand%CANTEL devuelve una cantidad random de elementos para el caso de prueba n-esimo
 			printf("El caso %d tiene %d elementos\n", j, elem);
 			for (i=1;i<=elem;i++){
-				dec=33+rand()%(NUM+1);//La operación resto de la división rand()%(NUM+1) devuelve un número entre 0 y NUM. De este modo es que esta línea almacena en dec número desde el 33 hasta el valor NUM+33.
+				dec=33+rand()%(NUM+1);//La operacion resto de la division rand()%(NUM+1) devuelve un numero entre 0 y NUM. De este modo es que esta linea almacena en dec numero desde el 33 hasta el valor NUM+33.
 				fprintf(archivo,"%c",dec);
 			}
 			if(j!=cant){
 				fprintf(archivo,"\n"); //¡¡¡pulir doble espacio final en archivo!!!!
 			}
 		}
-		printf("Archivo creado con éxito.\n\n");
+		printf("Archivo creado con exito.\n\n");
 		fclose(archivo);
 	}
 	regmenu();
@@ -215,7 +215,7 @@ void frecuencia(){
         }
         printf("La cantidad de casos es %d\n\n", casos);
 
-        // Declaración de estructura
+        // Declaracion de estructura
         typedef struct {
             int *caso; // caso es un puntero a un arreglo de enteros
             int decimal;
@@ -223,7 +223,7 @@ void frecuencia(){
 
         ascii dec[cantcar];
 
-        // La función calloc asigna memoria inicializada en cero
+        // La funcion calloc asigna memoria inicializada en cero
         for (int i = 0; i < cantcar; i++) {
             dec[i].caso = (int*)calloc(casos, sizeof(int));
             dec[i].decimal=0;
@@ -245,7 +245,7 @@ void frecuencia(){
 
 
 
-        // Contar frecuencia de aparición de caracteres por caso
+        // Contar frecuencia de aparicion de caracteres por caso
         rewind(archivo);
         while (fscanf(archivo, "%c", &car) != EOF) {
             if (car != '\n') {
