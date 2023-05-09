@@ -1,13 +1,17 @@
 /*
  * codigo.c
  *
- *  Created on: 3 may. 2023
- *      Author: joaqu
+ *  Created on: 25 apr. 2023
+ *
+ *  Autor: Espíndola, Yésica .- Gonzalez, Joaquín - Weller, Gustavo
+ *
  */
 
 
 #include<stdio.h>
 #include<stdlib.h>
+#include <time.h>
+#include <direct.h>
 
 enum opciones{Crear=1,Leer,Mostrar,Eliminar,Salir};
 
@@ -126,7 +130,7 @@ void crear_archivo(){
 
 	srand(time(NULL));
 
-	mkdir("datos", 0777); //crea directorio para el archivo de texto "datos"
+	mkdir("datos"); //crea directorio para el archivo de texto "datos"
 	archivo=fopen("datos/pruebas.txt","w");
 
 	if(archivo==NULL){
@@ -170,7 +174,7 @@ void leer_archivo(){
 				printf("Caso %d\n",caso);
 			}
 			fscanf(archivo,"%c",&lec);
-			if(lec!='\n' || lec!='feof'){
+			if(lec!='\n'){
 				printf("%c ",lec);
 				b=1;
 			}else{
@@ -193,9 +197,9 @@ void leer_archivo(){
 //---------------------------------------------------------------------------------------------------
 
 void frecuencia(){
-
+	#define cantcar 94
     char lec, car;
-    int b = 0, casos = 1;
+    int b = 0, casos = 1,MEM_ERROR=0;
 
     FILE *archivo;
     archivo = fopen("datos/pruebas.txt", "r");
@@ -217,13 +221,29 @@ void frecuencia(){
             int decimal;
         } ascii;
 
-        ascii dec[94];
+        ascii dec[cantcar];
 
         // La función calloc asigna memoria inicializada en cero
-        for (int i = 0; i < 94; i++) {
+        for (int i = 0; i < cantcar; i++) {
             dec[i].caso = (int*)calloc(casos, sizeof(int));
             dec[i].decimal=0;
         }
+
+
+        for (int i= 0;i<cantcar;i++) {
+        			if(dec[i].caso==NULL){
+        				printf("No es posible reservar memoria\n");
+        				MEM_ERROR=1;
+        				break;
+        			}
+        		}
+
+
+                if(MEM_ERROR==0){
+
+
+
+
 
         // Contar frecuencia de aparición de caracteres por caso
         rewind(archivo);
@@ -242,10 +262,10 @@ void frecuencia(){
         int i, j, menor, lugar;
         for (int k = 0; k < casos; k++) {
             printf("\nCaso %d\n", k + 1);
-            for (i = 0; i < 94 - 1; i++) {
+            for (i = 0; i < cantcar - 1; i++) {
                 menor = dec[i].caso[k];
                 lugar = i;
-                for (j = i + 1; j < 94; j++) {
+                for (j = i + 1; j < cantcar; j++) {
                 	//caso en el que el siguiente es menor que la variable menor
                     if (menor > dec[j].caso[k]) {
                         menor = dec[j].caso[k];
@@ -271,7 +291,7 @@ void frecuencia(){
             }
 
             // Imprimir por pantalla los casos y frecuencias asociados
-            for (i = 0; i < 94; i++) {
+            for (i = 0; i < cantcar; i++) {
                 if (dec[i].caso[k]) {
                     printf("El caracter %d es %c y tiene frecuencia %d\n", dec[i].decimal, dec[i].decimal, dec[i].caso[k]);
                 }
@@ -279,9 +299,10 @@ void frecuencia(){
         }
 
         // Liberar memoria
-        for (int i = 0; i < 94; i++) {
+        for (int i = 0; i < cantcar; i++) {
             free(dec[i].caso);
         }
+                }
     }
 
     regmenu();
