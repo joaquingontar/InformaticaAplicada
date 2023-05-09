@@ -112,7 +112,7 @@ void regmenu(){
 void crear_archivo(){
 
 	#define NUM 93 // NUM+33 es el extremo superior del rango de valores ascii que puede tomar la variable dec. 126=NUM+33 => NUM=93
-	#define CANTEL 10 // CANTEL= Cantidad máxima de elementos por caso de prueba
+	#define CANTEL 1000 // CANTEL= Cantidad máxima de elementos por caso de prueba
 	int i,j,dec,cant,elem; //dec: decimal ascii , cant: cantidad casos de prueba, elem: cantidad aleatoria de elementos para el n-esimo caso
 	FILE *archivo;
 
@@ -217,10 +217,10 @@ void frecuencia(){
             int decimal;
         } ascii;
 
-        ascii dec[93];
+        ascii dec[94];
 
         // La función calloc asigna memoria inicializada en cero
-        for (int i = 0; i < 93; i++) {
+        for (int i = 0; i < 94; i++) {
             dec[i].caso = (int*)calloc(casos, sizeof(int));
             dec[i].decimal=0;
         }
@@ -242,10 +242,10 @@ void frecuencia(){
         int i, j, menor, lugar;
         for (int k = 0; k < casos; k++) {
             printf("\nCaso %d\n", k + 1);
-            for (i = 0; i < 93 - 1; i++) {
+            for (i = 0; i < 94 - 1; i++) {
                 menor = dec[i].caso[k];
                 lugar = i;
-                for (j = i + 1; j < 93; j++) {
+                for (j = i + 1; j < 94; j++) {
                 	//caso en el que el siguiente es menor que la variable menor
                     if (menor > dec[j].caso[k]) {
                         menor = dec[j].caso[k];
@@ -271,7 +271,7 @@ void frecuencia(){
             }
 
             // Imprimir por pantalla los casos y frecuencias asociados
-            for (i = 0; i < 93; i++) {
+            for (i = 0; i < 94; i++) {
                 if (dec[i].caso[k]) {
                     printf("El caracter %d es %c y tiene frecuencia %d\n", dec[i].decimal, dec[i].decimal, dec[i].caso[k]);
                 }
@@ -279,7 +279,7 @@ void frecuencia(){
         }
 
         // Liberar memoria
-        for (int i = 0; i < 93; i++) {
+        for (int i = 0; i < 94; i++) {
             free(dec[i].caso);
         }
     }
